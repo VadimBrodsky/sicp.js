@@ -4,6 +4,7 @@ const env = {
   difference: (...operands) => operands.reduce((acc, i) => (acc -= i)),
   product: (...operands) => operands.reduce((acc, i) => (acc *= i)),
   quotient: (...operands) => operands.reduce((acc, i) => (acc /= i)),
+  define: (symbol, value) => env[symbol] = value,
 };
 
 module.exports = env;

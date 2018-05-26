@@ -1,4 +1,5 @@
-const { f, sum, difference, product, quotient } = require('../env');
+const env = require('../env');
+const { f, sum, difference, product, quotient, define } = env;
 
 describe('expressions', () => {
   it('should echo a primitive expression', () => {
@@ -27,5 +28,25 @@ describe('expressions', () => {
         f(sum, f(difference, 10, 7), 6),
       ),
     ).toEqual(57);
+  });
+});
+
+describe('naming and the environment', () => {
+  it('should name things using define', () => {
+    define('size', 2);
+    const { size } = env;
+
+    expect(size).toEqual(2);
+    expect(f(product, 5, size)).toEqual(10);
+  });
+
+  it('should name compound operations', () => {
+    define('pi', 3.14159);
+    define('radius', 10);
+    define('circumference', f(product, 2, env.pi, env.radius));
+    const {  pi, radius, circumference } = env;
+
+    expect(f(product, pi, f(product, radius, radius))).toEqual(314.159);
+    expect(circumference).toEqual(62.8318);
   });
 });

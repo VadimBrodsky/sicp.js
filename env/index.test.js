@@ -35,3 +35,11 @@ describe('quotient', () => {
     expect(quotient).toEqual(10);
   });
 });
+
+describe('define', () => {
+  it('should add the symbol to the global environment', () => {
+    env.define('pi', 3.14);
+    expect(env.pi).toBeDefined();
+    expect(env.pi).toEqual(3.14);
+  });
+});
