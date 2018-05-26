@@ -1,4 +1,4 @@
-const { f, sum } = require('../env');
+const { f, sum, difference, product, quotient } = require('../env');
 
 describe('expressions', () => {
   it('should echo a primitive expression', () => {

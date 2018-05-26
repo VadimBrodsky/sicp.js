@@ -1,6 +1,6 @@
 const env = require('./index.js');
 
-describe('f function', () => {
+describe('f', () => {
   it('should pass the arguments to the passed in function', () => {
     const spy = jest.fn();
     env.f(spy, 1, 2, 3);
@@ -8,9 +8,30 @@ describe('f function', () => {
   });
 });
 
-describe('sum function', () => {
-  it('should sum all of the passed in arguments', () => {
+describe('sum', () => {
+  it('should sum the passed in arguments', () => {
     const sum = env.sum(1, 2, 3);
     expect(sum).toEqual(6);
+  });
+});
+
+describe('difference', () => {
+  it('should subtract the passed in arguments', () => {
+    const difference = env.difference(100, 20, 60);
+    expect(difference).toEqual(20);
+  });
+});
+
+describe('product', () => {
+  it('should multiply the passed in arguments', () => {
+    const product = env.product(1, 2, 3);
+    expect(product).toEqual(6);
+  });
+});
+
+describe('quotient', () => {
+  it('should divide the passed in arguments', () => {
+    const quotient = env.quotient(100, 5, 2);
+    expect(quotient).toEqual(10);
   });
 });
